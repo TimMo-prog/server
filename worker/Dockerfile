@@ -6,7 +6,8 @@
 # Date: 2021-03-23
 #
 
-FROM python:3.8-alpine
+# FROM python:3.8-alpine
+FROM python:3.8-alpine3.13
 
 LABEL maintainer="maxwelld90@acm.org"
 
