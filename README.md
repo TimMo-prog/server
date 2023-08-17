@@ -30,4 +30,4 @@ For documentation on LogUI server, please go and check out the [corresponding Wi
 
 ## Found a Bug or have a Feature Request?
 
-It would be great to hear from you! Please [raise an issue in this repository](https://github.com/logui-framework/server/issues) and we can discuss what options that can be pursued to resolve it.
+It would be great to hear from you! Please [raise an issue in this repository](https://github.com/logui-framework/server/issues) and we can discuss what options that can be pursued to resolve it.# logui-server-new

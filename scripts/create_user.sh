@@ -9,4 +9,4 @@
 # Date: 2021-03-19
 #
 
-docker exec -it logui_http-worker_1 python manage.py createsuperuser --username=$1
+docker exec -it server-http-worker-1 python manage.py createsuperuser --username=$1

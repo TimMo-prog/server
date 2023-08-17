@@ -9,8 +9,7 @@ version: "3.0"
 
 services:
   proxy:
-    build:
-      context: ./proxy
+    image: 543824727987.dkr.ecr.eu-west-1.amazonaws.com/logui-server:server-proxy-latest
     restart: always
     depends_on:
       - http-worker
@@ -23,15 +22,12 @@ services:
       - frontend
 
   http-worker:
-    build:
-      context: ./
-      dockerfile: ./worker/Dockerfile
-      args:
-        - SECRET_KEY=${SECRET_KEY}  # This is required for collectstatic to work.
+    image: 543824727987.dkr.ecr.eu-west-1.amazonaws.com/logui-server:http-worker-latest
     env_file: .env
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
+      - SECRET_KEY=${SECRET_KEY}  # This is required for collectstatic to work
     restart: always
     volumes:
       - static:/logui/worker/static/
@@ -40,16 +36,13 @@ services:
       - backend
   
   websocket-worker:
-    build:
-      context: ./
-      dockerfile: ./worker/Dockerfile
-      args:
-        - SECRET_KEY=${SECRET_KEY}
+    image: 543824727987.dkr.ecr.eu-west-1.amazonaws.com/logui-server:websocket-worker-latest
     command: daphne -b 0.0.0.0 -p 8000 worker.asgi:logui_application
     env_file: .env
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
+      - SECRET_KEY=${SECRET_KEY}
     restart: always
     volumes:
       - static:/logui/worker/static/
